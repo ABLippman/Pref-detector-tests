@@ -4,6 +4,8 @@
 //
 //  Created by lip on 3/8/19.
 //  Copyright © 2019 Andrew Lippman. All rights reserved.
+//  Can detect phone numbers and linkify them, but not enabled
+//  And not URLs
 //
 
 import Cocoa
@@ -11,6 +13,7 @@ extension NSTextField{ func controlTextDidChange(obj: NSNotification){} }
 class PrefsViewController: NSViewController,NSTextFieldDelegate {
 
     @IBOutlet weak var prefText: NSTextField!
+    @IBOutlet var linkView: NSTextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -19,6 +22,10 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
 
         prefText.stringValue = "This is the starter text"
 //        prefText.isEditable = false;
+        
+        linkView.isEditable = false
+//        linkView.dataDetectorTypes = .all  //UITextView only...
+        linkView.string = "This is me, 6179011065"
     }
     
     override func controlTextDidChange(_ obj: Notification)
@@ -34,6 +41,7 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
             guard let range = Range(match.range, in: value) else { continue }
             let url = value[range] + ", "
             print(url)
+            linkView.string = "Data Detector found: " + url + ", "
             
         }
 
@@ -43,8 +51,8 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
         print("Hit Prefs!")
     }
     
-    @IBAction func textChanged(_ sender: Any) {
-        print("Text Changed\n")
-    }
-    
+        @IBAction func textEntered(_ sender: Any) {
+            linkView.string = prefText.stringValue
+            print("Text Changed\n")
+        }
 }
