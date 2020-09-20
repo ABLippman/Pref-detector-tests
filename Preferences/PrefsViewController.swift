@@ -17,17 +17,14 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        let styles: NSTextCheckingResult.CheckingType = [.phoneNumber, .link]
 //        prefText.delegate = self
         if let prefText = prefText {  // more complicated delegate assign
             prefText.delegate = self
         }
 //        prefText.stringValue = "This is the starter text"
-//        prefText.isEditable = false;
-        
+//
         linkView.isEditable = false
 //        linkView.dataDetectorTypes = .all  //UITextView only...
-//        linkView.string = "This is me, 6179011065"
     }
     
     override func controlTextDidChange(_ obj: Notification)
