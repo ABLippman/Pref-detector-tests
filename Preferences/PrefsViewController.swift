@@ -22,6 +22,7 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
             prefText.delegate = self
         }
 //        prefText.stringValue = "This is the starter text"
+        prefText.stringValue = "README.md.edu"
 //
         linkView.isEditable = false
 //        linkView.dataDetectorTypes = .all  //UITextView only...
@@ -58,7 +59,7 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
     }
     
         @IBAction func textEntered(_ sender: Any) {
-//            linkView.string = prefText.stringValue
-            print("Text Changed\n")
+ //           linkView.string = prefText.stringValue
+            print("Text Ended\n")
         }
 }
