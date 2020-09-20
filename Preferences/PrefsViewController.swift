@@ -10,28 +10,29 @@
 
 import Cocoa
 extension NSTextField{ func controlTextDidChange(obj: NSNotification){} }
-class PrefsViewController: NSViewController,NSTextFieldDelegate {
+class PrefsViewController: NSViewController,NSTextViewDelegate {
 
-    @IBOutlet weak var prefText: NSTextField!
+//    @IBOutlet weak var prefText: NSTextField!
+    @IBOutlet var prefText: NSTextView!
     @IBOutlet var linkView: NSTextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-//        prefText.delegate = self
-        if let prefText = prefText {  // more complicated delegate assign
+        prefText.delegate = self
+/*        if let prefText = prefText {  // more complicated delegate assign
             prefText.delegate = self
-        }
-//        prefText.stringValue = "This is the starter text"
-        prefText.stringValue = "README.md.edu"
+        } */
+//        prefText.stringValue = "This is the starter text"  StingValue is fields..
+        prefText.string = "README.md.edu"  //String is for textView
 //
         linkView.isEditable = false
 //        linkView.dataDetectorTypes = .all  //UITextView only...
     }
     
-    override func controlTextDidChange(_ obj: Notification)
+    func textDidChange(_ obj: Notification)
     {
-        let object = obj.object as! NSTextField
-        let value = object.stringValue
+        let object = obj.object as! NSTextView
+        let value = object.string
  //       print(value)
         let styles: NSTextCheckingResult.CheckingType = [.phoneNumber, .link]
         let detector = try! NSDataDetector(types: styles.rawValue)
@@ -52,6 +53,13 @@ class PrefsViewController: NSViewController,NSTextFieldDelegate {
             print(url)  //  prints the raw match
             linkView.string = "Data Detector found: " + url
         }
+    }
+    
+    func textDidEndEditing(_ notification: Notification) {
+        //  This works for textView when you make another view key
+        guard (notification.object as? NSTextView) != nil else { return }
+        
+        print("Text Ended\n")
     }
     
     @IBAction func doPrefs(_ sender: Any) {

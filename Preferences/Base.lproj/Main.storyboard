@@ -735,7 +735,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pyz-pf-Rmv">
-                                <rect key="frame" x="318" y="47" width="81" height="32"/>
+                                <rect key="frame" x="311" y="4" width="81" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l9R-fm-wmP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -746,7 +746,7 @@
                                 </buttonCell>
                             </button>
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-ub-a04">
-                                <rect key="frame" x="67" y="95" width="319" height="98"/>
+                                <rect key="frame" x="75" y="39" width="319" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="RN6-lw-r5V">
                                     <rect key="frame" x="0.0" y="0.0" width="304" height="98"/>
@@ -772,23 +772,38 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NWb-Ha-IMo">
-                                <rect key="frame" x="67" y="201" width="319" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="You type here" drawsBackground="YES" id="DpV-dO-35B">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <action selector="textEntered:" target="XFe-Cv-utP" id="fLP-Vr-VIN"/>
-                                </connections>
-                            </textField>
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bba-c6-3TU">
+                                <rect key="frame" x="75" y="153" width="319" height="97"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="jJL-jI-ajF">
+                                    <rect key="frame" x="0.0" y="0.0" width="304" height="97"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="4DU-34-gXi">
+                                            <rect key="frame" x="0.0" y="0.0" width="304" height="97"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="304" height="97"/>
+                                            <size key="maxSize" width="304" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="OPy-tC-SS0">
+                                    <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="LJn-89-jA3">
+                                    <rect key="frame" x="304" y="0.0" width="15" height="97"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="linkView" destination="0jb-pv-dgx" id="iWG-2k-xIO"/>
-                        <outlet property="prefText" destination="NWb-Ha-IMo" id="Chw-dT-YVg"/>
+                        <outlet property="prefText" destination="4DU-34-gXi" id="tdG-iF-b4F"/>
                     </connections>
                 </viewController>
                 <customObject id="RbR-aV-HBH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
